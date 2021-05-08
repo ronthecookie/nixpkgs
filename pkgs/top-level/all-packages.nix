@@ -150,6 +150,8 @@ in
 
   alda = callPackage ../development/interpreters/alda { };
 
+  alvr = callPackage ../games/alvr { };
+
   among-sus = callPackage ../games/among-sus { };
 
   ankisyncd = callPackage ../servers/ankisyncd { };

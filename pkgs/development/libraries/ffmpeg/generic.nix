@@ -1,7 +1,7 @@
 { lib, stdenv, buildPackages, fetchurl, pkg-config, addOpenGLRunpath, perl, texinfo, yasm
 , alsaLib, bzip2, fontconfig, freetype, gnutls, libiconv, lame, libass, libogg
 , libssh, libtheora, libva, libdrm, libvorbis, libvpx, xz, libpulseaudio, soxr
-, x264, x265, xvidcore, zlib, libopus, speex, nv-codec-headers, dav1d
+, x264, x265, xvidcore, zlib, libopus, speex, nv-codec-headers, dav1d, vulkan-loader
 , openglSupport ? false, libGLU ? null, libGL ? null
 , libmfxSupport ? false, intel-media-sdk ? null
 , libaomSupport ? false, libaom ? null
@@ -59,6 +59,7 @@ let
   disDarwinOrArmFix = origArg: minVer: fixArg: if ((isDarwin || isAarch32) && reqMin minVer) then fixArg else origArg;
 
   vaapiSupport = reqMin "0.6" && ((isLinux || isFreeBSD) && !isAarch32);
+  vulkanSupport = reqMin "4.4" && (isLinux && !isAarch32);
 
   vpxSupport = reqMin "0.6" && !isAarch32;
 in
@@ -142,6 +143,7 @@ stdenv.mkDerivation rec {
       (ifMinVer "0.6" (enableFeature vpxSupport "libvpx"))
       (ifMinVer "2.4" "--enable-lzma")
       (ifMinVer "2.2" (enableFeature openglSupport "opengl"))
+      (ifMinVer "4.4" (enableFeature vulkanSupport "vulkan"))
       (ifMinVer "4.2" (enableFeature libmfxSupport "libmfx"))
       (ifMinVer "4.2" (enableFeature libaomSupport "libaom"))
       (disDarwinOrArmFix (ifMinVer "0.9" "--enable-libpulse") "0.9" "--disable-libpulse")
@@ -183,7 +185,8 @@ stdenv.mkDerivation rec {
     ++ optionals isDarwin darwinFrameworks
     ++ optional vdpauSupport libvdpau
     ++ optional sdlSupport (if reqMin "3.2" then SDL2 else SDL)
-    ++ optional (reqMin "4.2") dav1d;
+    ++ optional (reqMin "4.2") dav1d
+    ++ optional vulkanSupport vulkan-loader;
 
   enableParallelBuilding = true;
 
