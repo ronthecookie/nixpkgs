@@ -53,7 +53,7 @@ stdenv.mkDerivation ({
   urls = urls_;
 
   # If set, prefer the content-addressable mirrors
-  # (http://nix.cs.uu.nl/dist/tarballs) over the original URLs.
+  # (http://tarballs.nixos.org/dist/tarballs) over the original URLs.
   preferHashedMirrors = true;
 
   # Compatibility with Nix <= 0.7.

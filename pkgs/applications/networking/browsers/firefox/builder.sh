@@ -1,6 +1,17 @@
 source $stdenv/setup
 
 postInstall=postInstall
+
+patchPhase() {
+    if test -z "$patchPhase" -a -z "$patches"; then return; fi
+    header "patching sources"
+    startLog "patch"
+    patchW
+    stopLog
+    stopNest
+    cp security/coreconf/Linux2.6.mk security/coreconf/Linux5.11.mk
+}
+
 postInstall() {
 
     # Strip some more stuff

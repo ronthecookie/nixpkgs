@@ -15,7 +15,7 @@ stdenv.mkDerivation {
 
   fonts = [
     (fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/ghostscript-fonts-std-8.11.tar.gz;
+      url = http://tarballs.nixos.org/ghostscript-fonts-std-8.11.tar.gz;
       md5 = "6865682b095f8c4500c54b285ff05ef6";
     })
     # ... add other fonts here

@@ -9,7 +9,7 @@ stdenv.mkDerivation {
   name = "nix-${version}";
   
   src = fetchurl {
-    url = "http://nix.cs.uu.nl/dist/nix/nix-${version}/nix-${version}.tar.bz2";
+    url = "http://tarballs.nixos.org/dist/nix/nix-${version}/nix-${version}.tar.bz2";
     md5 = "cae130dcc51a30eff34fc194e17891f2";
   };
 
@@ -22,7 +22,7 @@ stdenv.mkDerivation {
 
   meta = {
     description = "The Nix Deployment System";
-    homepage = http://nix.cs.uu.nl/;
+    homepage = http://tarballs.nixos.org/;
     license = "LGPL";
   };
 }

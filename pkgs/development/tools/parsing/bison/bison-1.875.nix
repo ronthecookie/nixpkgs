@@ -5,7 +5,7 @@ assert m4 != null;
 stdenv.mkDerivation {
   name = "bison-1.875";
   src = fetchurl {
-    urls = [ http://nix.cs.uu.nl/dist/tarballs/bison-1.875.tar.bz2 
+    urls = [ http://tarballs.nixos.org/bison-1.875.tar.bz2 
 	ftp://ftp.gnu.org/pub/gnu/bison/bison-1.875.tar.bz2 
       ];
     md5 = "b7f8027b249ebd4dd0cc948943a71af0";

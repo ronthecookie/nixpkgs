@@ -1,5 +1,5 @@
 { stdenv, fetchurl, pkgconfig, gtk, perl, zip, libIDL, libXi
-, libjpeg, libpng, zlib, cairo
+, libjpeg, libpng, zlib, cairo , x11
 
 , # If you want the resulting program to call itself "Firefox" instead
   # of "Deer Park", enable this option.  However, those binaries may
@@ -19,7 +19,7 @@ stdenv.mkDerivation {
   };
 
   buildInputs = [
-    pkgconfig gtk perl zip libIDL libXi libjpeg libpng zlib cairo
+    pkgconfig gtk perl zip libIDL libXi libjpeg libpng zlib cairo x11
   ];
 
   patches = [
@@ -29,6 +29,7 @@ stdenv.mkDerivation {
     # http://lists.gobolinux.org/pipermail/gobolinux-users/2007-January/004344.html
     ./xlibs.patch
   ];
+
 
   configureFlags = [
     "--enable-application=browser"

@@ -2616,7 +2616,7 @@ rec {
   perlDateManip = import ../development/perl-modules/generic perl {
     name = "DateManip-5.42a";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/DateManip-5.42a.tar.gz;
+      url = http://tarballs.nixos.org/DateManip-5.42a.tar.gz;
       md5 = "648386bbf46d021ae283811f75b07bdf";
     };
   };
@@ -2674,7 +2674,7 @@ rec {
   perlHTMLTree = import ../development/perl-modules/generic perl {
     name = "HTML-Tree-3.18";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/HTML-Tree-3.18.tar.gz;
+      url = http://tarballs.nixos.org/HTML-Tree-3.18.tar.gz;
       md5 = "6a9e4e565648c9772e7d8ec6d4392497";
     };
   };
@@ -2682,7 +2682,7 @@ rec {
   perlLocaleGettext = import ../development/perl-modules/generic perl {
     name = "LocaleGettext-1.04";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/gettext-1.04.tar.gz;
+      url = http://tarballs.nixos.org/gettext-1.04.tar.gz;
       md5 = "578dd0c76f8673943be043435b0fbde4";
     };
   };
@@ -2718,7 +2718,7 @@ rec {
   perlTermReadKey = import ../development/perl-modules/generic perl {
     name = "TermReadKey-2.30";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/TermReadKey-2.30.tar.gz;
+      url = http://tarballs.nixos.org/TermReadKey-2.30.tar.gz;
       md5 = "f0ef2cea8acfbcc58d865c05b0c7e1ff";
     };
   };
@@ -2744,7 +2744,7 @@ rec {
   perlXMLLibXML = import ../development/perl-modules/generic perl {
     name = "XML-LibXML-1.58";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/XML-LibXML-1.58.tar.gz;
+      url = http://tarballs.nixos.org/XML-LibXML-1.58.tar.gz;
       md5 = "4691fc436e5c0f22787f5b4a54fc56b0";
     };
     buildInputs = [libxml2];
@@ -2754,7 +2754,7 @@ rec {
   perlXMLLibXMLCommon = import ../development/perl-modules/generic perl {
     name = "XML-LibXML-Common-0.13";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/XML-LibXML-Common-0.13.tar.gz;
+      url = http://tarballs.nixos.org/XML-LibXML-Common-0.13.tar.gz;
       md5 = "13b6d93f53375d15fd11922216249659";
     };
     buildInputs = [libxml2];
@@ -2763,7 +2763,7 @@ rec {
   perlXMLNamespaceSupport = import ../development/perl-modules/generic perl {
     name = "XML-NamespaceSupport-1.08";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/XML-NamespaceSupport-1.08.tar.gz;
+      url = http://tarballs.nixos.org/XML-NamespaceSupport-1.08.tar.gz;
       md5 = "81bd5ae772906d0579c10061ed735dc8";
     };
     buildInputs = [];
@@ -2784,7 +2784,7 @@ rec {
   perlXMLSAX = import ../development/perl-modules/generic perl {
     name = "XML-SAX-0.12";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/XML-SAX-0.12.tar.gz;
+      url = http://tarballs.nixos.org/XML-SAX-0.12.tar.gz;
       md5 = "bff58bd077a9693fc8cf32e2b95f571f";
     };
     propagatedBuildInputs = [perlXMLNamespaceSupport];
@@ -2793,7 +2793,7 @@ rec {
   perlXMLSimple = import ../development/perl-modules/generic perl {
     name = "XML-Simple-2.14";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/XML-Simple-2.14.tar.gz;
+      url = http://tarballs.nixos.org/XML-Simple-2.14.tar.gz;
       md5 = "f321058271815de28d214c8efb9091f9";
     };
     propagatedBuildInputs = [perlXMLParser];
@@ -2802,7 +2802,7 @@ rec {
   perlXMLTwig = import ../development/perl-modules/generic perl {
     name = "XML-Twig-3.15";
     src = fetchurl {
-      url = http://nix.cs.uu.nl/dist/tarballs/XML-Twig-3.15.tar.gz;
+      url = http://tarballs.nixos.org/XML-Twig-3.15.tar.gz;
       md5 = "b26886b8bd19761fff37b23e4964b499";
     };
     propagatedBuildInputs = [perlXMLParser];
@@ -3950,7 +3950,7 @@ rec {
   };
 
   firefox = lowPrio (import ../applications/networking/browsers/firefox {
-    inherit fetchurl stdenv pkgconfig perl zip libjpeg libpng zlib cairo;
+    inherit fetchurl stdenv pkgconfig perl zip libjpeg libpng zlib cairo x11;
     inherit (gtkLibs) gtk;
     inherit (gnome) libIDL;
     inherit (xlibs) libXi;

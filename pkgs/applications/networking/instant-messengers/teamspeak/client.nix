@@ -26,7 +26,7 @@ Subject: teamspeak on nix?
 
 Hello,
 
-nix is very young software distribution system (http://nix.cs.uu.nl/)
+nix is very young software distribution system (http://tarballs.nixos.org/)
 I'd like to ask wether you permit us to add teamspeak (server/ client?)
 
 Sincerly

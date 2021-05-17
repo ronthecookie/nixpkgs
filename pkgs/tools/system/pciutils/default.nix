@@ -10,7 +10,7 @@ stdenv.mkDerivation {
   buildInputs = [zlib];
 
   pciids = fetchurl {
-    url = http://nix.cs.uu.nl/dist/tarballs/pci.ids.20070226.bz2;
+    url = http://tarballs.nixos.org/pci.ids.20070226.bz2;
     sha256 = "1wrpq4dxm03v5jvvdlvwl8nrkj3hspgifkw5czmd647lzikp13qc";
   };
 }
