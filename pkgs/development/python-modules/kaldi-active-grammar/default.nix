@@ -10,23 +10,14 @@
 , cffi
 , tree
 , openfst
-, kaldi
 , python
 , substituteAll
+, callPackage
 }:
 
 let
   version = "2.1.0";
-  kaldiFork = kaldi.overrideAttrs (old: {
-    inherit version;
-    src = fetchFromGitHub {
-      owner = "daanzu";
-      repo = "kaldi-fork-active-grammar";
-      rev = "kag-v1.5.0";
-      sha256 = "sha256-lIfYnGMRHZOd5fy+XEP5SfTqdIW7hM1geu5CY7gT2ng=";
-    };
-    patches = [ ./0004-fork-cmake.patch ];
-  });
+  kaldi = callPackage ./fork.nix { };
 in
 buildPythonPackage rec {
   pname = "kaldi-active-grammar";
@@ -47,7 +38,7 @@ buildPythonPackage rec {
     ./0002-exec-path.patch
     (substituteAll {
       src = ./0003-ffi-path.patch;
-      kaldiFork = "${kaldiFork}/lib";
+      kaldiFork = "${kaldi}/lib";
     })
   ];
 
@@ -56,7 +47,7 @@ buildPythonPackage rec {
     cd ..
   '';
 
-  buildInputs = [ openfst kaldiFork ];
+  buildInputs = [ openfst kaldi ];
   nativeBuildInputs = [ scikit-build cmake ];
   propagatedBuildInputs = [ ush requests numpy cffi ];
 

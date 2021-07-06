@@ -2901,6 +2901,7 @@ in
   kapacitor = callPackage ../servers/monitoring/kapacitor { };
 
   kaldi = callPackage ../tools/audio/kaldi { };
+  kag-fork = callPackage ../development/python-modules/kaldi-active-grammar/fork.nix {  };
 
   kalker = callPackage ../tools/misc/kalker { };
 
